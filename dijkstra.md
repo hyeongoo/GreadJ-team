@@ -1,13 +1,13 @@
 ```
 import java.util.Scanner;
 class graph{
-    int n;
-    int map[][];
+    int n;	//노드 수를 저장할 변수
+    int map[][];	//두 노드 사이의 거리를 표현할 배열
     int INF = 10000;
 
     public graph(int n){
-        this.n = n;
-        map = new int[n+1][n+1];	//두 노드 사이의 거리를 표현할 배열
+        this.n = n;	//노드 수를 받음
+        map = new int[n+1][n+1];	//배열의 크기 지정
     }
 
     public void input(int i, int j, int w){
@@ -16,7 +16,7 @@ class graph{
     }
 
     public void dijkstra(int v){
-        int distance[] = new int[n+1];  //거리값을 저장할 배열
+        int distance[] = new int[n+1];  //거리값을 저장할 배열(거리값 = 시작 노드에서 각 노드까지의 거리)
         boolean [] visit = new boolean[n+1];    //방문여부를 확인할 배열
 
         for(int i=1; i<n+1; i++){	//노드 번호를 1번부터 시작하기 위해 이렇게 반복함
@@ -26,11 +26,11 @@ class graph{
         visit[v] = true;    //처음 시작 노드 방문
 
         for(int i=1; i<n+1; i++){
-            if(!visit[i] && map[v][i] != 0) distance[i] = map[v][i];    //i를 방문하지 않았고, v와i의 거리가 0이 아니면, i의 거리값 = v와i사이의 거리
+            if(!visit[i] && map[v][i] != 0) distance[i] = map[v][i];    //i를 방문하지 않았고, v와i의 거리가 0이 아니면(같은 노드가 아니면), i의 거리값 = v와i사이의 거리
         }
 
         for(int k=0; k<n-1; k++){   //다익스트라는 노드의수 -1번만 반복하면 된다.
-           int min = INF;	//초기 최솟값은 엄청 큰 수로 설정
+           int min = INF;	//초기 최솟값은 엄청 큰 수로 초기화
            int min_index = -1;
 
            for(int i=1; i<n+1; i++){
