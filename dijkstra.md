@@ -44,7 +44,11 @@ class graph{
            for(int i=1; i<n+1; i++){
                if(!visit[i] && map[min_index][i] != 0){
                    if(distance[i] > distance[min_index] + map[min_index][i]){   //노드 b의 거리값 < 노드 a의 거리값 + a와b의 거리값 인경우
-                       distance[i] = distance[min_index] + map[min_index][i];   //노드 b의 거리값 = 노드 a의 거리값 + a와b의 거리값
+                       System.out.print("i=" + i + ", " + "distance[i]=" + distance[i] + ", ");
+                       System.out.print("min_index=" + min_index + ", " + "distance[min_index]=" + distance[min_index] + ", ");
+                       System.out.print("map[min_index][i]=" + map[min_index][i]);
+                       System.out.println();
+                       distance[i] = distance[min_index]+map[min_index][i];
                    }
                }
            }
