@@ -58,20 +58,21 @@ class graph{
 
 public class Main {
     public static void main(String[] args){
-        graph g = new graph(8);
-        g.input(1, 2, 3);
-        g.input(1, 5, 4);
-        g.input(1, 4, 4);
-        g.input(2, 3, 2);
-        g.input(3, 4, 1);
-        g.input(4, 5, 2);
-        g.input(5, 6, 4);
-        g.input(4, 7, 6);
-        g.input(7, 6, 3);
-        g.input(3, 8, 3);
-        g.input(6, 8, 2);
-        g.dijkstra(1);
+Scanner sc = new Scanner(System.in);
+        System.out.println("노드의 수를 입력해주세요.");
+        int n = sc.nextInt();
+        System.out.println("간선의 수를 입력해주세요.");
+        int m = sc.nextInt();
+        graph g = new graph(n);
+        System.out.println("연결된 노드와 거리값을 입력해주세요.");
+        for(int i=0; i<m; i++){
+            g.input(sc.nextInt(), sc.nextInt(), sc.nextInt());
+        }
+        System.out.println("시작 노드를 입력해주세요.");
+        int start = sc.nextInt();
+        g.dijkstra(start);
 
+        sc.close();
     }
 }
 ```
