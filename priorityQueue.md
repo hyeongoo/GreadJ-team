@@ -1,5 +1,6 @@
 ```
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
 class Element implements Comparable<Element> {
     int index;
@@ -65,7 +66,7 @@ public class test {
         for (int i = 1; i <= V; ++i) {
             dist[i] = inf;
         }
-
+/*
         ad[1][2] = 20;
         ad[1][4] = 30;
         ad[2][3] = 20;
@@ -77,8 +78,21 @@ public class test {
         ad[5][6] = 10;
 
         DijkstaMethod(1);
+*/
+ Scanner sc= new Scanner(System.in);
+
+
+int d=sc.nextInt();
+for(int i=0;i<d; i++){
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            int c = sc.nextInt();
+
+            ad[a][b] = c;
+        }
+        DijkstaMethod(1);
 
     }
 }
-//참고용
+//직접 입력 방식으로 변경
 ```
